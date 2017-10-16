@@ -36,7 +36,7 @@ list.innerHTML = Mustache.render(template, myobj)
 
 var ids = document.getElementsByClassName("id");
 for (var i = 0; i < ids.length; i++) {
-	$(ids[i]).on('click touchstart', function(event){
+	$(ids[i]).on('touchstart click', function(event){
 		song = event.target.innerHTML;
 		jukebox.playSong(song);
 	})
