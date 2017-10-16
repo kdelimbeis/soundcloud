@@ -19,11 +19,11 @@ document.getElementById("submit").addEventListener("click",function(){
 	  var template = `
   {{#tracks}}
   	<div>
-	  	<div>{{user.username}}</div>
+	  	<div>User: {{user.username}}</div>
 	  	<div class="id">{{id}}</div>
-	  	<div>{{title}}</div>
+	  	<div>Title: {{title}}</div>
 	  	<div><a href='{{permalink_url}}'>Visit us on SoundCloud</a></div>
-	  	<div>{{genre}}</div>
+	  	<div>Genre: {{genre}}</div>
 	  	
 	  	<br>
   	</div>
@@ -36,7 +36,7 @@ list.innerHTML = Mustache.render(template, myobj)
 
 var ids = document.getElementsByClassName("id");
 for (var i = 0; i < ids.length; i++) {
-	ids[i].addEventListener("click",function(event){
+	$(ids[i]).on('click touchstart', function(event){
 		song = event.target.innerHTML;
 		jukebox.playSong(song);
 	})
@@ -77,21 +77,6 @@ document.getElementById("button1").addEventListener("click", function(){
 document.getElementById("button2").addEventListener("click", function(){
 	jukebox.pauseSong()
 	});
-
-
-document.getElementById("button6").addEventListener("click", function(){
-	trackId = 315307209;
-	findSong(trackId);
-	});
-document.getElementById("button7").addEventListener("click", function(){
-	trackId = 216847995;
-	findSong(trackId);
-	});
-document.getElementById("button8").addEventListener("click", function(){
-	trackId = 239777850;
-	findSong(trackId);
-	});
-
 
 
 function findSong(trackId) {
